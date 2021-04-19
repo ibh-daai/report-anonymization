@@ -127,12 +127,12 @@ if __name__ == '__main__':
     rows = pgsql.fetchall()
     total = len(rows)
     i = 0;
-    print(datetime.datetime.now())
+    print(datetime.datetime.now(), flush=True)
 
     for row in rows:
         i += 1
         if ((i % 1000) == 0):
-            print("%.2f percent complete" % (i * 100 / total))
+            print("%.2f percent complete" % (i * 100 / total), flush=True)
 
         id = row['original_study_id']
         report = row['report_text']
